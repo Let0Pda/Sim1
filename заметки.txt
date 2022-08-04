@@ -1,0 +1,50 @@
+int number = Convert.ToInt32(Console.ReadLine()); 
+Используется для перевода в целое число
+
+switch(переменная)
+	{
+		case 1:
+			Console.WriteLine("Текст")
+			break;
+		case 2
+			Console.WriteLine("Текст")
+			break;
+			
+			
+		default
+		
+		
+		
+Console.WriteLine("Введите целое число: ");
+int N = Convert.ToInt32(Console.ReadLine());
+int M = N* (- 1);
+while (M <= N)
+{
+    Console.Write(M+" ");
+    M++;
+}
+Console.WriteLine();
+
+
+int N = 0;
+while(N < 100 || N >999)
+{
+Console.WriteLine("Введите трехзначное число: ");
+N = Convert.ToInt32(Console.ReadLine());
+}
+Console.WriteLine("Последняя цифра числа: " + N % 10;)
+
+
+
+домашка
+2
+через if
+
+4
+через ветвление
+
+6
+через %
+
+8
+работа с остатком
