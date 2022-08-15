@@ -8,11 +8,3 @@ for (int i = 1; i < number; i++)
 }
 Console.Write($"Результат работы программы = {sum}");
 */
-
-int Cycle(int a)
-{
-    for (int i = 0; i < length; i++)
-    {
-
-    }
-}
