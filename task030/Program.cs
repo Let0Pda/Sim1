@@ -26,6 +26,6 @@ void PrintArray(int[] array)
 */
 Console.WriteLine();
 //PrintArray(Array(N, min, max));
-Console.WriteLine('[' + string.Join(", ", Array(N, min, max)) + ']');
+Console.WriteLine('[' + string.Join(", ", Array(N, min, max)) + ']'); // Красивый вывод
 
 Console.WriteLine();
