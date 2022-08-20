@@ -7,13 +7,13 @@
 Console.Clear();
 Console.WriteLine();
 Console.Write("Введите число: ");
-string writeN = Console.ReadLine();
-long N = Convert.ToInt32(writeN);
+string? writeN = Console.ReadLine();
+int N = Convert.ToInt32(writeN);
 
-long Cycle(long x)
+double Cycle(int x)
 {
-    long comp = 1;
-    for (long num = 1; num <= x; num++)
+    double comp = 1;
+    for (int num = 1; num <= x; num++)
     {
         comp = comp * num;
         Console.WriteLine(comp);
