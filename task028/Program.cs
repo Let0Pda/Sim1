@@ -12,13 +12,13 @@ int N = Convert.ToInt32(writeN);
 
 double Cycle(int x)
 {
-    double comp = 1;
-    for (int num = 1; num <= x; num++)
+    double res = 1;
+    for (int i = 1; i <= x; i++)
     {
-        comp = comp * num;
-        Console.WriteLine(comp);
+        res = res * i;
+        Console.WriteLine(res);
     }
-    return comp;
+    return res;
 
 }
 Console.WriteLine($"Произведение чисел от 1 до {N} равно {Cycle(N)}");
