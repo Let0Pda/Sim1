@@ -1,6 +1,4 @@
-﻿//Задача 39
-
-int[] FillArray(int size, int leftRange, int rightRange)
+﻿int[] FillArray(int size, int leftRange, int rightRange)
 {
     Random rand = new Random();
     int[] arr = new int[size];
