@@ -69,14 +69,12 @@ int[,] DeleteNewMatrix(int[,] matrix, int index1, int index2)
         if (i == index1) offset1++;
         for (int j = 0; j < matrix1.GetLength(1); j++)
         {
-            if (j == index2) offset2++;
-            matrix1[i, j] = matrix[i + offset1, j + offset2];
-
-
-            offset1 = 0;
-            offset2 = 0;
+            if (j < index2) matrix1[i, j] = matrix[i + offset1, j + offset2];
+            else matrix1[i, j] = matrix[i + 1, j];
 
         }
+        offset1 = 0;
+        offset2 = 0;
     }
     return matrix1;
 }
