@@ -8,7 +8,7 @@ int m = Convert.ToInt32(Console.ReadLine());
 
 Console.Write("Введите n -> ");
 int n = Convert.ToInt32(Console.ReadLine());
-
+Console.WriteLine();
 int[,] matrix = new int[m, n];
 
 for (int i = 0; i < m; i++)
@@ -20,24 +20,12 @@ for (int i = 0; i < m; i++)
     }
     Console.WriteLine();
 }
-Console.WriteLine("\n");
+Console.WriteLine();
 
-void PrintMatrix(int[,] matrix)
-{
-    for (int i = 0; i < matrix.GetLength(0); i++)
-    {
-        for (int j = 0; j < matrix.GetLength(1); j++)
-        {
-            Console.Write(matrix[i, j] + " ");
-        }
-        Console.WriteLine();
-    }
+int indexRaw = -1;
+int indexCol = -1;
 
-}
-
-
-
-void FindMinElement(int[,] matrix, ref int index1, ref int index2)
+void FindMinElement(int[,] matrix)
 {
     int min = matrix[0, 0];
 
@@ -48,42 +36,44 @@ void FindMinElement(int[,] matrix, ref int index1, ref int index2)
             if (matrix[i, j] < min)
             {
                 min = matrix[i, j];
-                index1 = i;
-                index2 = j;
+                indexRaw = i;
+                indexCol = j;
             }
 
         }
 
     }
-    Console.WriteLine($"Найдено минимальное значение в массиве -> {min}\n");
+    Console.Write($"Найдено минимальное значение в массиве -> {min} с индексами i = {indexRaw}, j = {indexCol}");
 
 }
 
-int[,] DeleteNewMatrix(int[,] matrix, int index1, int index2)
+void DeleteNewMatrix(int[,] matrix, int indexRaw, int indexCol)
 {
     int[,] matrix1 = new int[matrix.GetLength(0) - 1, matrix.GetLength(1) - 1];
-    int offset1 = 0;
-    int offset2 = 0;
     for (int i = 0; i < matrix1.GetLength(0); i++)
     {
-        if (i == index1) offset1++;
         for (int j = 0; j < matrix1.GetLength(1); j++)
         {
-            if (j == index2) matrix1[i, j] = matrix[i + offset1, j + offset2];
-            else matrix1[i, j] = matrix[i + 1, j];
+            if (i >= indexRaw)
+            {
+                if (j >= indexCol) matrix1[i, j] = matrix[i + 1, j + 1];
+                else if (j < indexCol) matrix1[i, j] = matrix[i + 1, j];
+            }
 
+            else if (i < indexRaw)
+            {
+                if (j >= indexCol) matrix1[i, j] = matrix[i, j + 1];
+            }
+            if (j < indexCol) matrix1[i, j] = matrix[i, j];
+            Console.Write(matrix1[i, j] + " ");
         }
-        //offset1 = 0;
-        // offset2 = offset2[j];
+        Console.WriteLine();
     }
 
-    return matrix1;
 }
+Console.WriteLine();
 
-int minI = 0;
-int minJ = 0;
 
-FindMinElement(matrix, ref minI, ref minJ);
-Console.WriteLine("Новый массив\n");
-//Console.Write(NewMatrix(matrix, minI, minJ));
-PrintMatrix(DeleteNewMatrix(matrix, minI, minJ));
+FindMinElement(matrix);
+Console.WriteLine("\nНовый массив:\n");
+DeleteNewMatrix(matrix, indexRaw, indexCol);
